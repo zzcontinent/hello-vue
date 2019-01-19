@@ -98,6 +98,7 @@ export default {
 <style scoped>
 h1, h2 {
   font-weight: normal;
+  color: #68b942;
 }
 ul {
   list-style-type: none;
@@ -108,6 +109,6 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  color: #b9426a;
 }
 </style>
