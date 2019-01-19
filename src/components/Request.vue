@@ -17,19 +17,23 @@
       v-model="m_url"
     >
     <button @click="request">POST</button>
-    <br>
-    <h2>请求</h2>
-    <textarea
-      rows="10"
-      v-model="m_msg"
-    >request:</textarea>
-    <br>
-    <h2>响应</h2>
-    <textarea
-      rows="20"
-      readonly="readonly"
-      v-model="m_ret"
-    >response:</textarea>
+    <div>
+      <div class='floatLeft'>
+        <h2>请求参数</h2>
+        <textarea
+          rows="20"
+          v-model="m_msg"
+        >request:</textarea>
+      </div>
+      <div class='floatLeft'>
+        <h2>响应</h2>
+        <textarea
+          rows="20"
+          readonly="readonly"
+          v-model="m_ret"
+        >response:</textarea>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -64,33 +68,23 @@ export default {
 h1,
 h2 {
   font-weight: normal;
-  font-size: 20px;
-  padding: 2px;
-  margin: 2px;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+  font-size: 16px;
+  margin: 0px;
 }
 input {
-  width: 50%;
-  margin-bottom: 20px;
-  padding: 2px 10px;
-  background-color: lightgoldenrodyellow;
+  width: 67%;
+  background-color: lightgray;
 }
 textarea {
-  background-color: darkcyan;
+  background-color: lightcyan;
   font-size: 16px;
-  width: 67%;
-  margin-bottom: 20px;
   overflow: auto;
   word-break: break-all;
+  width: 100%;
+}
+.floatLeft {
+  float: left;
+  width: 48%;
+  margin: auto 1%;
 }
 </style>

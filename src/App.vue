@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-    <router-link to='/Tables'>Tables</router-link>
-    <router-link to='/Request'>Request</router-link>
     <router-view/>
   </div>
 </template>
