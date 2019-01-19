@@ -43,7 +43,7 @@ export default {
             [
               'name',
               'varchar(64)',
-              '名字一定要长-----------------------------------------------------'
+              '名字 名字 名字 名字 名字 名字 名字 名字 名字 名字 名字 名字 '
             ],
             [
               'mobile',
@@ -61,7 +61,7 @@ export default {
 <style scoped>
 table.gridtable {
   font-family: verdana, arial, sans-serif;
-  font-size: 11px;
+  font-size: 16px;
   color: #666;
   border-width: 1px;
   border-color: #cad9ea;
