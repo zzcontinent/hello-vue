@@ -22,23 +22,24 @@ export default {
   data: function () {
     return {
       m_chartData: {
-        labels: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt()],
-        datasets: [
-          {
-            label: 'Data 1',
-            backgroundColor: 'lightgreen',
-            data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt()]
-          }, {
-            label: 'Data 2',
-            backgroundColor: 'lightred',
-            data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt()]
-          }
-        ]
       }
     }
   },
   created: function () {
-
+    setInterval(() => {
+      this.m_chartData = {
+        labels: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt()],
+        datasets: [
+          {
+            label: 'Data 1',
+            data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt()]
+          }, {
+            label: 'Data 2',
+            data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt()]
+          }
+        ]
+      }
+    }, 1000)
   },
   methods: {
     getRandomInt () {
