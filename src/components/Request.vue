@@ -1,14 +1,13 @@
 
 <template>
   <div class="request">
-    <h2>平台</h2>
-    <select v-model="m_plat">
+    <h2>请求方式</h2>
+    <select v-model="m_type">
       <option
-        value="/alpha"
+        value="post"
         selected="selected"
-      >alpha</option>
-      <option value="/sit">sit</option>
-      <option value="/online">online</option>
+      >post</option>
+      <option value="get">get</option>
     </select>
 
     <h2>服务名</h2>
@@ -38,26 +37,34 @@
 </template>
 
 <script>
-const utilRequest = require('../utils/request')
+const utilHttp = require('../utils/http.js')
 const utilMisc = require('../utils/misc.js')
 
 export default {
   name: 'Request',
   data () {
     return {
-      m_url: '/MINI_Fans/GainFans',
+      m_url: '/alpha.mini.router/MINI_Fans/GainFans',
       m_msg: JSON.stringify({ 'ChartView': 1, 'Uid': 2 }),
       m_ret: '',
-      m_plat: '/alpha'
+      m_type: 'post'
     }
   },
   methods: {
     request: function () {
-      utilRequest.Post(this.m_plat, this.m_url, JSON.parse(this.m_msg)).then((res) => {
-        this.m_ret = utilMisc.formatJson(res.data)
-      }).catch((err) => {
-        console.error(err)
-      })
+      if (this.m_type === 'post') {
+        utilHttp.Post(this.m_url, JSON.parse(this.m_msg)).then((res) => {
+          this.m_ret = utilMisc.formatJson(res.data)
+        }).catch((err) => {
+          this.m_ret = err
+        })
+      } else {
+        utilHttp.Get(this.m_url, JSON.parse(this.m_msg)).then((res) => {
+          this.m_ret = utilMisc.formatJson(res.data)
+        }).catch((err) => {
+          this.m_ret = err
+        })
+      }
     }
   }
 }
