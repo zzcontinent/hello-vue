@@ -39,12 +39,11 @@
 <script>
 const utilHttp = require('../utils/http.js')
 const utilMisc = require('../utils/misc.js')
-
 export default {
   name: 'Request',
   data () {
     return {
-      m_url: '/alpha.mini.router/MINI_Fans/GainFans',
+      m_url: '/alpha.mini.router/MINI_Fans/GainFans http://api.github.com/',
       m_msg: JSON.stringify({ 'ChartView': 1, 'Uid': 2 }),
       m_ret: '',
       m_type: 'post'
@@ -56,13 +55,13 @@ export default {
         utilHttp.Post(this.m_url, JSON.parse(this.m_msg)).then((res) => {
           this.m_ret = utilMisc.formatJson(res.data)
         }).catch((err) => {
-          this.m_ret = err
+          this.m_ret = err + res.data
         })
       } else {
         utilHttp.Get(this.m_url, JSON.parse(this.m_msg)).then((res) => {
-          this.m_ret = utilMisc.formatJson(res.data)
+          this.m_ret = (res.data)
         }).catch((err) => {
-          this.m_ret = err
+          this.m_ret = err + res.data
         })
       }
     }
