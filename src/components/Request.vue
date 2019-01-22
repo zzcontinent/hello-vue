@@ -55,13 +55,13 @@ export default {
         utilHttp.Post(utilHttp.proxyTableConfig.proxyBaseURL + this.m_url, JSON.parse(this.m_msg)).then((res) => {
           this.m_ret = utilMisc.formatJson(res.data)
         }).catch((err) => {
-          this.m_ret = err + res.data
+          this.m_ret = err
         })
       } else {
         utilHttp.Get(utilHttp.proxyTableConfig.proxyBaseURL + this.m_url, JSON.parse(this.m_msg)).then((res) => {
           this.m_ret = (res.data)
         }).catch((err) => {
-          this.m_ret = err + res.data
+          this.m_ret = err
         })
       }
     }
