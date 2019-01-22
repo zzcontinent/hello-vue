@@ -43,7 +43,7 @@ export default {
   name: 'Request',
   data () {
     return {
-      m_url: '/alpha.mini.router/MINI_Fans/GainFans http://api.github.com/',
+      m_url: 'alpha.mini.router/MINI_Fans/GainFans',
       m_msg: JSON.stringify({ 'ChartView': 1, 'Uid': 2 }),
       m_ret: '',
       m_type: 'post'
@@ -52,13 +52,13 @@ export default {
   methods: {
     request: function () {
       if (this.m_type === 'post') {
-        utilHttp.Post(this.m_url, JSON.parse(this.m_msg)).then((res) => {
+        utilHttp.Post(utilHttp.proxyTableConfig.proxyBaseURL + this.m_url, JSON.parse(this.m_msg)).then((res) => {
           this.m_ret = utilMisc.formatJson(res.data)
         }).catch((err) => {
           this.m_ret = err + res.data
         })
       } else {
-        utilHttp.Get(this.m_url, JSON.parse(this.m_msg)).then((res) => {
+        utilHttp.Get(utilHttp.proxyTableConfig.proxyBaseURL + this.m_url, JSON.parse(this.m_msg)).then((res) => {
           this.m_ret = (res.data)
         }).catch((err) => {
           this.m_ret = err + res.data

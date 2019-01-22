@@ -34,6 +34,7 @@ module.exports = {
         return axios(options)
     },
     proxyTableConfig: {
+        proxyBaseURL: 'http://cvm/api'
         // '/api': {
         //     target: 'http://129.204.69.39',
         //     changeOrigin: true
